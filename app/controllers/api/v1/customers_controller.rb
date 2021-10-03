@@ -6,7 +6,7 @@ class Api::V1::CustomersController < ApplicationController
       end
     
       def create
-          @customer = customer.new(customer_params)
+          @customer = Customer.new(customer_params)
     
         if @customer.save
           render json: @customer
@@ -32,11 +32,11 @@ class Api::V1::CustomersController < ApplicationController
       end
     
       def destroy
+        
        @customer = Customer.find(params[:id])
+       
         @customer.destroy
     
-        # @customers = customer.find_by(dino_type_id: params['dino_type_id'])
-        # render json: @customers
     
       end
     
